@@ -1,14 +1,6 @@
 #[test_only]
 module liquidswap::curves_tests {
-    use liquidswap::curves::{
-        Self,
-        is_stable,
-        Uncorrelated,
-        Stable,
-        is_uncorrelated,
-        is_valid_curve,
-        assert_valid_curve
-    };
+    use liquidswap::curves::{is_stable, Uncorrelated, Stable, is_uncorrelated, is_valid_curve, assert_valid_curve};
 
     struct UnknownCurve {}
 
@@ -38,7 +30,7 @@ module liquidswap::curves_tests {
     }
 
     #[test]
-    #[expected_failure(abort_code = curves::ERR_INVALID_CURVE)]
+    #[expected_failure(abort_code=10001)]
     fun test_assert_is_valid_curve_fails() {
         assert_valid_curve<UnknownCurve>();
     }
